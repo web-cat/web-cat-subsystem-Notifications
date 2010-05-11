@@ -19,12 +19,12 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
+import org.webcat.core.MutableDictionary;
+import org.webcat.core.User;
+import org.webcat.core.messaging.IMessageSettings;
 import com.webobjects.eocontrol.EOEditingContext;
-import net.sf.webcat.core.MutableDictionary;
-import net.sf.webcat.core.User;
-import net.sf.webcat.core.messaging.IMessageSettings;
 
 // -------------------------------------------------------------------------
 /**

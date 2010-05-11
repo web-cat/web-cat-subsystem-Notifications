@@ -1,7 +1,7 @@
 {
     globalOptions = (
         {
-            property    = net.sf.webcat.notifications.protocols.TwitterProtocol.username;
+            property    = org.webcat.notifications.protocols.TwitterProtocol.username;
             type        = shortText;
             size        = 15;
             name        = "Twitter Username";
@@ -10,7 +10,7 @@
    messages are sent.";
         },
         {
-            property    = net.sf.webcat.notifications.protocols.TwitterProtocol.password;
+            property    = org.webcat.notifications.protocols.TwitterProtocol.password;
             type        = password;
             size        = 15;
             name        = "Twitter Password";

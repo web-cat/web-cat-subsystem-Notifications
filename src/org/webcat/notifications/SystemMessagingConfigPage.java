@@ -19,14 +19,14 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
 import java.util.HashMap;
-import net.sf.webcat.core.MutableDictionary;
-import net.sf.webcat.core.WCComponent;
-import net.sf.webcat.core.messaging.Message;
-import net.sf.webcat.core.messaging.MessageDescriptor;
-import net.sf.webcat.notifications.protocols.Protocol;
+import org.webcat.core.MutableDictionary;
+import org.webcat.core.WCComponent;
+import org.webcat.core.messaging.Message;
+import org.webcat.core.messaging.MessageDescriptor;
+import org.webcat.notifications.protocols.Protocol;
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOContext;

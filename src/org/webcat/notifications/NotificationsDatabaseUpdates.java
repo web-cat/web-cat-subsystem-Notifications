@@ -19,12 +19,12 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
 import java.sql.SQLException;
-import net.sf.webcat.dbupdate.UpdateSet;
-import net.sf.webcat.jobqueue.JobQueueDatabaseUpdates;
 import org.apache.log4j.Logger;
+import org.webcat.dbupdate.UpdateSet;
+import org.webcat.jobqueue.JobQueueDatabaseUpdates;
 
 //-------------------------------------------------------------------------
 /**

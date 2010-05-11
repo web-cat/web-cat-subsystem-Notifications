@@ -19,13 +19,13 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications.protocols;
+package org.webcat.notifications.protocols;
 
-import net.sf.webcat.core.Application;
-import net.sf.webcat.core.User;
-import net.sf.webcat.core.messaging.IMessageSettings;
-import net.sf.webcat.notifications.ProtocolSettings;
-import net.sf.webcat.notifications.SendMessageJob;
+import org.webcat.core.Application;
+import org.webcat.core.User;
+import org.webcat.core.messaging.IMessageSettings;
+import org.webcat.notifications.ProtocolSettings;
+import org.webcat.notifications.SendMessageJob;
 import com.webobjects.foundation.NSDictionary;
 
 //-------------------------------------------------------------------------

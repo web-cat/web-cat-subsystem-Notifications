@@ -19,12 +19,12 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
-import net.sf.webcat.core.Application;
-import net.sf.webcat.core.Subsystem;
-import net.sf.webcat.jobqueue.QueueDescriptor;
 import org.apache.log4j.Logger;
+import org.webcat.core.Application;
+import org.webcat.core.Subsystem;
+import org.webcat.jobqueue.QueueDescriptor;
 import com.webobjects.eocontrol.EOEditingContext;
 import com.webobjects.eocontrol.EOGlobalID;
 import com.webobjects.eocontrol.EOKeyGlobalID;

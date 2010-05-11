@@ -19,7 +19,7 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications.googlevoice;
+package org.webcat.notifications.googlevoice;
 
 import java.io.IOException;
 import java.io.InputStream;

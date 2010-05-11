@@ -22,7 +22,7 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
 import com.webobjects.eoaccess.*;
 import com.webobjects.eocontrol.*;
@@ -41,8 +41,8 @@ import org.apache.log4j.Logger;
  * @version version suppressed to control auto-generation
  */
 public abstract class _SendMessageJob
-    extends net.sf.webcat.jobqueue.JobBase
-    implements net.sf.webcat.core.MutableContainer.MutableContainerOwner
+    extends org.webcat.jobqueue.JobBase
+    implements org.webcat.core.MutableContainer.MutableContainerOwner
 {
     //~ Constructors ..........................................................
 
@@ -184,12 +184,12 @@ public abstract class _SendMessageJob
         new ERXKey<Integer>(UPDATE_MUTABLE_FIELDS_KEY);
     // To-one relationships ---
     public static final String BROADCAST_PROTOCOL_SETTINGS_KEY = "broadcastProtocolSettings";
-    public static final ERXKey<net.sf.webcat.notifications.ProtocolSettings> broadcastProtocolSettings =
-        new ERXKey<net.sf.webcat.notifications.ProtocolSettings>(BROADCAST_PROTOCOL_SETTINGS_KEY);
+    public static final ERXKey<org.webcat.notifications.ProtocolSettings> broadcastProtocolSettings =
+        new ERXKey<org.webcat.notifications.ProtocolSettings>(BROADCAST_PROTOCOL_SETTINGS_KEY);
     // To-many relationships ---
     public static final String DESTINATION_USERS_KEY = "destinationUsers";
-    public static final ERXKey<net.sf.webcat.core.User> destinationUsers =
-        new ERXKey<net.sf.webcat.core.User>(DESTINATION_USERS_KEY);
+    public static final ERXKey<org.webcat.core.User> destinationUsers =
+        new ERXKey<org.webcat.core.User>(DESTINATION_USERS_KEY);
     // Fetch specifications ---
     public static final String ENTITY_NAME = "SendMessageJob";
 
@@ -210,7 +210,7 @@ public abstract class _SendMessageJob
 
 
     //-- Local mutable cache --
-    private net.sf.webcat.core.MutableDictionary attachmentsCache;
+    private org.webcat.core.MutableDictionary attachmentsCache;
     private NSData attachmentsRawCache;
 
     // ----------------------------------------------------------
@@ -218,7 +218,7 @@ public abstract class _SendMessageJob
      * Retrieve this object's <code>attachments</code> value.
      * @return the value of the attribute
      */
-    public net.sf.webcat.core.MutableDictionary attachments()
+    public org.webcat.core.MutableDictionary attachments()
     {
         NSData dbValue =
             (NSData)storedValueForKey( "attachments" );
@@ -235,8 +235,8 @@ public abstract class _SendMessageJob
                 // of a concurrent update through another editing
                 // context, so throw away current values.
                 attachmentsRawCache = dbValue;
-                net.sf.webcat.core.MutableDictionary newValue =
-                    net.sf.webcat.core.MutableDictionary
+                org.webcat.core.MutableDictionary newValue =
+                    org.webcat.core.MutableDictionary
                     .objectWithArchiveData( dbValue );
                 if ( attachmentsCache != null )
                 {
@@ -253,7 +253,7 @@ public abstract class _SendMessageJob
         else if ( dbValue == null && attachmentsCache == null )
         {
             attachmentsCache =
-                net.sf.webcat.core.MutableDictionary
+                org.webcat.core.MutableDictionary
                 .objectWithArchiveData( dbValue );
              attachmentsCache.setOwner( this );
              setUpdateMutableFields( true );
@@ -269,7 +269,7 @@ public abstract class _SendMessageJob
      *
      * @param value The new value for this property
      */
-    public void setAttachments( net.sf.webcat.core.MutableDictionary value )
+    public void setAttachments( org.webcat.core.MutableDictionary value )
     {
         if (log.isDebugEnabled())
         {
@@ -342,7 +342,7 @@ public abstract class _SendMessageJob
 
 
     //-- Local mutable cache --
-    private net.sf.webcat.core.MutableDictionary broadcastProtocolSettingsSnapshotCache;
+    private org.webcat.core.MutableDictionary broadcastProtocolSettingsSnapshotCache;
     private NSData broadcastProtocolSettingsSnapshotRawCache;
 
     // ----------------------------------------------------------
@@ -350,7 +350,7 @@ public abstract class _SendMessageJob
      * Retrieve this object's <code>broadcastProtocolSettingsSnapshot</code> value.
      * @return the value of the attribute
      */
-    public net.sf.webcat.core.MutableDictionary broadcastProtocolSettingsSnapshot()
+    public org.webcat.core.MutableDictionary broadcastProtocolSettingsSnapshot()
     {
         NSData dbValue =
             (NSData)storedValueForKey( "broadcastProtocolSettingsSnapshot" );
@@ -367,8 +367,8 @@ public abstract class _SendMessageJob
                 // of a concurrent update through another editing
                 // context, so throw away current values.
                 broadcastProtocolSettingsSnapshotRawCache = dbValue;
-                net.sf.webcat.core.MutableDictionary newValue =
-                    net.sf.webcat.core.MutableDictionary
+                org.webcat.core.MutableDictionary newValue =
+                    org.webcat.core.MutableDictionary
                     .objectWithArchiveData( dbValue );
                 if ( broadcastProtocolSettingsSnapshotCache != null )
                 {
@@ -385,7 +385,7 @@ public abstract class _SendMessageJob
         else if ( dbValue == null && broadcastProtocolSettingsSnapshotCache == null )
         {
             broadcastProtocolSettingsSnapshotCache =
-                net.sf.webcat.core.MutableDictionary
+                org.webcat.core.MutableDictionary
                 .objectWithArchiveData( dbValue );
              broadcastProtocolSettingsSnapshotCache.setOwner( this );
              setUpdateMutableFields( true );
@@ -401,7 +401,7 @@ public abstract class _SendMessageJob
      *
      * @param value The new value for this property
      */
-    public void setBroadcastProtocolSettingsSnapshot( net.sf.webcat.core.MutableDictionary value )
+    public void setBroadcastProtocolSettingsSnapshot( org.webcat.core.MutableDictionary value )
     {
         if (log.isDebugEnabled())
         {
@@ -538,7 +538,7 @@ public abstract class _SendMessageJob
 
 
     //-- Local mutable cache --
-    private net.sf.webcat.core.MutableDictionary linksCache;
+    private org.webcat.core.MutableDictionary linksCache;
     private NSData linksRawCache;
 
     // ----------------------------------------------------------
@@ -546,7 +546,7 @@ public abstract class _SendMessageJob
      * Retrieve this object's <code>links</code> value.
      * @return the value of the attribute
      */
-    public net.sf.webcat.core.MutableDictionary links()
+    public org.webcat.core.MutableDictionary links()
     {
         NSData dbValue =
             (NSData)storedValueForKey( "links" );
@@ -563,8 +563,8 @@ public abstract class _SendMessageJob
                 // of a concurrent update through another editing
                 // context, so throw away current values.
                 linksRawCache = dbValue;
-                net.sf.webcat.core.MutableDictionary newValue =
-                    net.sf.webcat.core.MutableDictionary
+                org.webcat.core.MutableDictionary newValue =
+                    org.webcat.core.MutableDictionary
                     .objectWithArchiveData( dbValue );
                 if ( linksCache != null )
                 {
@@ -581,7 +581,7 @@ public abstract class _SendMessageJob
         else if ( dbValue == null && linksCache == null )
         {
             linksCache =
-                net.sf.webcat.core.MutableDictionary
+                org.webcat.core.MutableDictionary
                 .objectWithArchiveData( dbValue );
              linksCache.setOwner( this );
              setUpdateMutableFields( true );
@@ -597,7 +597,7 @@ public abstract class _SendMessageJob
      *
      * @param value The new value for this property
      */
-    public void setLinks( net.sf.webcat.core.MutableDictionary value )
+    public void setLinks( org.webcat.core.MutableDictionary value )
     {
         if (log.isDebugEnabled())
         {
@@ -881,9 +881,9 @@ public abstract class _SendMessageJob
      * relationship.
      * @return the entity in the relationship
      */
-    public net.sf.webcat.notifications.ProtocolSettings broadcastProtocolSettings()
+    public org.webcat.notifications.ProtocolSettings broadcastProtocolSettings()
     {
-        return (net.sf.webcat.notifications.ProtocolSettings)storedValueForKey( "broadcastProtocolSettings" );
+        return (org.webcat.notifications.ProtocolSettings)storedValueForKey( "broadcastProtocolSettings" );
     }
 
 
@@ -896,7 +896,7 @@ public abstract class _SendMessageJob
      *
      * @param value The new entity to relate to
      */
-    public void setBroadcastProtocolSettings( net.sf.webcat.notifications.ProtocolSettings value )
+    public void setBroadcastProtocolSettings( org.webcat.notifications.ProtocolSettings value )
     {
         if (log.isDebugEnabled())
         {
@@ -916,7 +916,7 @@ public abstract class _SendMessageJob
      * @param value The new entity to relate to
      */
     public void setBroadcastProtocolSettingsRelationship(
-        net.sf.webcat.notifications.ProtocolSettings value )
+        org.webcat.notifications.ProtocolSettings value )
     {
         if (log.isDebugEnabled())
         {
@@ -925,7 +925,7 @@ public abstract class _SendMessageJob
         }
         if ( value == null )
         {
-            net.sf.webcat.notifications.ProtocolSettings object = broadcastProtocolSettings();
+            org.webcat.notifications.ProtocolSettings object = broadcastProtocolSettings();
             if ( object != null )
                 removeObjectFromBothSidesOfRelationshipWithKey( object, "broadcastProtocolSettings" );
         }
@@ -943,7 +943,7 @@ public abstract class _SendMessageJob
      * @return an NSArray of the entities in the relationship
      */
     @SuppressWarnings("unchecked")
-    public NSArray<net.sf.webcat.core.User> destinationUsers()
+    public NSArray<org.webcat.core.User> destinationUsers()
     {
         return (NSArray)storedValueForKey( "destinationUsers" );
     }
@@ -956,7 +956,7 @@ public abstract class _SendMessageJob
      *
      * @param value The new set of entities to relate to
      */
-    public void setDestinationUsers( NSMutableArray<net.sf.webcat.core.User>  value )
+    public void setDestinationUsers( NSMutableArray<org.webcat.core.User>  value )
     {
         if (log.isDebugEnabled())
         {
@@ -976,15 +976,15 @@ public abstract class _SendMessageJob
      *
      * @param value The new entity to relate to
      */
-    public void addToDestinationUsers( net.sf.webcat.core.User value )
+    public void addToDestinationUsers( org.webcat.core.User value )
     {
         if (log.isDebugEnabled())
         {
             log.debug( "addToDestinationUsers("
                 + value + "): was " + destinationUsers() );
         }
-        NSMutableArray<net.sf.webcat.core.User> array =
-            (NSMutableArray<net.sf.webcat.core.User>)destinationUsers();
+        NSMutableArray<org.webcat.core.User> array =
+            (NSMutableArray<org.webcat.core.User>)destinationUsers();
         willChange();
         array.addObject( value );
     }
@@ -999,15 +999,15 @@ public abstract class _SendMessageJob
      *
      * @param value The entity to remove from the relationship
      */
-    public void removeFromDestinationUsers( net.sf.webcat.core.User value )
+    public void removeFromDestinationUsers( org.webcat.core.User value )
     {
         if (log.isDebugEnabled())
         {
             log.debug( "RemoveFromDestinationUsers("
                 + value + "): was " + destinationUsers() );
         }
-        NSMutableArray<net.sf.webcat.core.User> array =
-            (NSMutableArray<net.sf.webcat.core.User>)destinationUsers();
+        NSMutableArray<org.webcat.core.User> array =
+            (NSMutableArray<org.webcat.core.User>)destinationUsers();
         willChange();
         array.removeObject( value );
     }
@@ -1020,7 +1020,7 @@ public abstract class _SendMessageJob
      *
      * @param value The new entity to relate to
      */
-    public void addToDestinationUsersRelationship( net.sf.webcat.core.User value )
+    public void addToDestinationUsersRelationship( org.webcat.core.User value )
     {
         if (log.isDebugEnabled())
         {
@@ -1039,7 +1039,7 @@ public abstract class _SendMessageJob
      *
      * @param value The entity to remove from the relationship
      */
-    public void removeFromDestinationUsersRelationship( net.sf.webcat.core.User value )
+    public void removeFromDestinationUsersRelationship( org.webcat.core.User value )
     {
         if (log.isDebugEnabled())
         {
@@ -1058,7 +1058,7 @@ public abstract class _SendMessageJob
      *
      * @return The new entity
      */
-    public net.sf.webcat.core.User createDestinationUsersRelationship()
+    public org.webcat.core.User createDestinationUsersRelationship()
     {
         if (log.isDebugEnabled())
         {
@@ -1071,7 +1071,7 @@ public abstract class _SendMessageJob
         editingContext().insertObject( eoObject );
         addObjectToBothSidesOfRelationshipWithKey(
             eoObject, "destinationUsers" );
-        return (net.sf.webcat.core.User)eoObject;
+        return (org.webcat.core.User)eoObject;
     }
 
 
@@ -1082,7 +1082,7 @@ public abstract class _SendMessageJob
      *
      * @param value The entity to remove from the relationship and then delete
      */
-    public void deleteDestinationUsersRelationship( net.sf.webcat.core.User value )
+    public void deleteDestinationUsersRelationship( org.webcat.core.User value )
     {
         if (log.isDebugEnabled())
         {
@@ -1107,7 +1107,7 @@ public abstract class _SendMessageJob
             log.debug( "deleteAllDestinationUsersRelationships(): was "
                 + destinationUsers() );
         }
-        for (net.sf.webcat.core.User object : destinationUsers())
+        for (org.webcat.core.User object : destinationUsers())
         {
             deleteDestinationUsersRelationship(object);
         }

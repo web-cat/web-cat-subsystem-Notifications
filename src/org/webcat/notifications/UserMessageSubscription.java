@@ -19,7 +19,7 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
 // -------------------------------------------------------------------------
 /**
@@ -29,16 +29,16 @@ package net.sf.webcat.notifications;
  * @author  latest changes by: $Author$
  * @version $Revision$, $Date$
  */
-public class BroadcastMessageSubscription
-    extends _BroadcastMessageSubscription
+public class UserMessageSubscription
+    extends _UserMessageSubscription
 {
     //~ Constructors ..........................................................
 
     // ----------------------------------------------------------
     /**
-     * Creates a new BroadcastMessageSubscription object.
+     * Creates a new UserMessageSubscription object.
      */
-    public BroadcastMessageSubscription()
+    public UserMessageSubscription()
     {
         super();
     }

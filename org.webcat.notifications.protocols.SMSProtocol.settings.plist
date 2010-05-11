@@ -1,7 +1,7 @@
 {
     globalOptions = (
         {
-            property    = net.sf.webcat.notifications.protocols.SMSProtocol.accountEmail;
+            property    = org.webcat.notifications.protocols.SMSProtocol.accountEmail;
             type        = shortText;
             size        = 15;
             name        = "Google Voice Account E-mail";
@@ -10,7 +10,7 @@
    from which any SMS messages will be sent.";
         },
         {
-            property    = net.sf.webcat.notifications.protocols.SMSProtocol.password;
+            property    = org.webcat.notifications.protocols.SMSProtocol.password;
             type        = password;
             size        = 15;
             name        = "Google Voice Password";
@@ -21,7 +21,7 @@
 
     options = (
         {
-            property    = net.sf.webcat.notifications.protocols.SMSProtocol.mobileNumber;
+            property    = org.webcat.notifications.protocols.SMSProtocol.mobileNumber;
             type        = shortText;
             size        = 15;
             name        = "Mobile Number";

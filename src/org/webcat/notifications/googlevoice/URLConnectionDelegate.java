@@ -19,30 +19,29 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications.googlevoice;
+package org.webcat.notifications.googlevoice;
 
 import java.io.IOException;
+import org.apache.http.HttpResponse;
 
 //-------------------------------------------------------------------------
 /**
- * An abstract class that contains methods called by the {@link GoogleVoice}
- * class when operations succeed or fail. Users should extend this class and
- * implement whichever notification methods they are interested in receiving.
+ * A class that receives notifications during an asynchronous HTTP request.
  *
  * @author  Tony Allevato
  * @version $Id$
  */
-public abstract class GoogleVoiceDelegate
+public abstract class URLConnectionDelegate
 {
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
     /**
-     * Called if log-in to Google Voice is successful.
+     * Called when the connection first receives a response header.
      *
-     * @param gv the GoogleVoice object
+     * @param response the response header
      */
-    public void loginSucceeded(GoogleVoice gv)
+    public void didReceiveResponse(HttpResponse response)
     {
         // Default implementation does nothing.
     }
@@ -50,12 +49,24 @@ public abstract class GoogleVoiceDelegate
 
     // ----------------------------------------------------------
     /**
-     * Called if log-in to Google Voice failed.
+     * Called when more data is available in the response.
      *
-     * @param gv the GoogleVoice object
+     * @param data the buffer containing the response data
+     * @param length the number of bytes currently in the buffer
+     */
+    public void didReceiveData(byte[] data, int length)
+    {
+        // Default implementation does nothing.
+    }
+
+
+    // ----------------------------------------------------------
+    /**
+     * Called when the connection fails.
+     *
      * @param e an exception describing the failure
      */
-    public void loginFailed(GoogleVoice gv, IOException e)
+    public void didFailWithException(IOException e)
     {
         // Default implementation does nothing.
     }
@@ -63,24 +74,9 @@ public abstract class GoogleVoiceDelegate
 
     // ----------------------------------------------------------
     /**
-     * Called after an SMS message is successfully sent.
-     *
-     * @param gv the GoogleVoice object
+     * Called when the response is finished loading.
      */
-    public void sendSMSSucceeded(GoogleVoice gv)
-    {
-        // Default implementation does nothing.
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * Called if sending an SMS message fails.
-     *
-     * @param gv the GoogleVoice object
-     * @param e an exception describing the failure
-     */
-    public void sendSMSFailed(GoogleVoice gv, IOException e)
+    public void didFinishLoading()
     {
         // Default implementation does nothing.
     }

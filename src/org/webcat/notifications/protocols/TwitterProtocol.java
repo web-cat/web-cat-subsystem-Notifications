@@ -19,16 +19,17 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications.protocols;
+package org.webcat.notifications.protocols;
 
-import net.sf.webcat.core.User;
-import net.sf.webcat.core.messaging.IMessageSettings;
-import net.sf.webcat.notifications.ProtocolSettings;
-import net.sf.webcat.notifications.SendMessageJob;
 import org.apache.log4j.Logger;
+import org.webcat.core.User;
+import org.webcat.core.messaging.IMessageSettings;
+import org.webcat.notifications.SendMessageJob;
 import twitter4j.AsyncTwitter;
+import twitter4j.AsyncTwitterFactory;
 import twitter4j.TwitterAdapter;
 import twitter4j.TwitterException;
+import twitter4j.TwitterMethod;
 
 //-------------------------------------------------------------------------
 /**
@@ -39,6 +40,15 @@ import twitter4j.TwitterException;
  */
 public class TwitterProtocol extends Protocol
 {
+    //~ Constructors ..........................................................
+
+    // ----------------------------------------------------------
+    public TwitterProtocol()
+    {
+        twitterFactory = new AsyncTwitterFactory(new Adapter());
+    }
+
+
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
@@ -64,18 +74,8 @@ public class TwitterProtocol extends Protocol
             content = content.substring(0, 137) + "...";
         }
 
-        AsyncTwitter twitter = new AsyncTwitter(username, password);
-
-        twitter.updateStatusAsync(content, new TwitterAdapter() {
-            @Override public void onException(TwitterException e, int method)
-            {
-                if (method == AsyncTwitter.UPDATE_STATUS)
-                {
-                    log.warn("An error occurred when updating the Twitter "
-                            + "feed \"" + username + "\"", e);
-                }
-            }
-        });
+        AsyncTwitter twitter = twitterFactory.getInstance(username, password);
+        twitter.updateStatus(content);
     }
 
 
@@ -95,12 +95,31 @@ public class TwitterProtocol extends Protocol
     }
 
 
+    //~ Private classes .......................................................
+
+    // ----------------------------------------------------------
+    private class Adapter extends TwitterAdapter
+    {
+        // ----------------------------------------------------------
+        @Override
+        public void onException(TwitterException e, TwitterMethod method)
+        {
+            if (method == TwitterMethod.UPDATE_STATUS)
+            {
+                log.warn("An error occurred when updating the Twitter "
+                        + "feed", e);
+            }
+        }
+    }
+
     //~ Static/instance variables .............................................
 
+    private AsyncTwitterFactory twitterFactory;
+
     private static final String USERNAME_SETTING =
-        "net.sf.webcat.notifications.protocols.TwitterProtocol.username";
+        "org.webcat.notifications.protocols.TwitterProtocol.username";
     private static final String PASSWORD_SETTING =
-        "net.sf.webcat.notifications.protocols.TwitterProtocol.password";
+        "org.webcat.notifications.protocols.TwitterProtocol.password";
 
     private static final Logger log = Logger.getLogger(TwitterProtocol.class);
 }

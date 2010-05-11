@@ -19,20 +19,20 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import net.sf.webcat.core.Application;
-import net.sf.webcat.core.MutableDictionary;
-import net.sf.webcat.core.User;
-import net.sf.webcat.core.messaging.IMessageSettings;
-import net.sf.webcat.core.messaging.Message;
-import net.sf.webcat.core.messaging.MessageDescriptor;
-import net.sf.webcat.jobqueue.WorkerThread;
-import net.sf.webcat.notifications.protocols.Protocol;
 import org.apache.log4j.Logger;
+import org.webcat.core.Application;
+import org.webcat.core.MutableDictionary;
+import org.webcat.core.User;
+import org.webcat.core.messaging.IMessageSettings;
+import org.webcat.core.messaging.Message;
+import org.webcat.core.messaging.MessageDescriptor;
+import org.webcat.jobqueue.WorkerThread;
+import org.webcat.notifications.protocols.Protocol;
 import com.webobjects.eocontrol.EOEditingContext;
 import com.webobjects.foundation.NSArray;
 import com.webobjects.foundation.NSDictionary;

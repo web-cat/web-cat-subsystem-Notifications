@@ -1,6 +1,6 @@
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
-import net.sf.webcat.core.WCComponent;
+import org.webcat.core.WCComponent;
 import com.webobjects.appserver.WOContext;
 
 public class MessageSubscriptionsModule extends WCComponent

@@ -1,17 +1,17 @@
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
 import java.util.HashMap;
 import java.util.Map;
-import net.sf.webcat.core.MutableDictionary;
-import net.sf.webcat.core.User;
-import net.sf.webcat.core.messaging.IMessageDispatcher;
-import net.sf.webcat.core.messaging.IMessageSettings;
-import net.sf.webcat.core.messaging.Message;
-import net.sf.webcat.notifications.protocols.EmailProtocol;
-import net.sf.webcat.notifications.protocols.Protocol;
-import net.sf.webcat.notifications.protocols.SMSProtocol;
-import net.sf.webcat.notifications.protocols.TwitterProtocol;
 import org.apache.log4j.Logger;
+import org.webcat.core.MutableDictionary;
+import org.webcat.core.User;
+import org.webcat.core.messaging.IMessageDispatcher;
+import org.webcat.core.messaging.IMessageSettings;
+import org.webcat.core.messaging.Message;
+import org.webcat.notifications.protocols.EmailProtocol;
+import org.webcat.notifications.protocols.Protocol;
+import org.webcat.notifications.protocols.SMSProtocol;
+import org.webcat.notifications.protocols.TwitterProtocol;
 import com.webobjects.eocontrol.EOEditingContext;
 import com.webobjects.foundation.NSArray;
 import com.webobjects.foundation.NSMutableArray;

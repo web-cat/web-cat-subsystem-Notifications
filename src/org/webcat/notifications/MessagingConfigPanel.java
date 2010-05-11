@@ -19,16 +19,16 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications;
+package org.webcat.notifications;
 
 import java.util.HashMap;
 import java.util.Map;
-import net.sf.webcat.core.MutableDictionary;
-import net.sf.webcat.core.WCComponent;
-import net.sf.webcat.core.messaging.Message;
-import net.sf.webcat.core.messaging.MessageDescriptor;
-import net.sf.webcat.notifications.protocols.Protocol;
-import net.sf.webcat.ui.generators.JavascriptGenerator;
+import org.webcat.core.MutableDictionary;
+import org.webcat.core.WCComponent;
+import org.webcat.core.messaging.Message;
+import org.webcat.core.messaging.MessageDescriptor;
+import org.webcat.notifications.protocols.Protocol;
+import org.webcat.ui.generators.JavascriptGenerator;
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOContext;
@@ -129,13 +129,17 @@ public class MessagingConfigPanel extends WCComponent
                 String messageType = subscription.messageType();
                 String protocolType = subscription.protocolType();
 
-                int messageIndex = messageToIndexMap.get(messageType);
-                int protocolIndex = protocolToIndexMap.get(protocolType);
+                if (messageToIndexMap.containsKey(messageType) &&
+                        protocolToIndexMap.containsKey(protocolType))
+                {
+                    int messageIndex = messageToIndexMap.get(messageType);
+                    int protocolIndex = protocolToIndexMap.get(protocolType);
 
-                objectMatrix[messageIndex][protocolIndex] =
-                    subscription;
-                selectionMatrix[messageIndex][protocolIndex] =
-                    subscription.isEnabled();
+                    objectMatrix[messageIndex][protocolIndex] =
+                        subscription;
+                    selectionMatrix[messageIndex][protocolIndex] =
+                        subscription.isEnabled();
+                }
             }
         }
         else
@@ -151,13 +155,17 @@ public class MessagingConfigPanel extends WCComponent
                 String messageType = selection.messageType();
                 String protocolType = selection.protocolType();
 
-                int messageIndex = messageToIndexMap.get(messageType);
-                int protocolIndex = protocolToIndexMap.get(protocolType);
+                if (messageToIndexMap.containsKey(messageType) &&
+                        protocolToIndexMap.containsKey(protocolType))
+                {
+                    int messageIndex = messageToIndexMap.get(messageType);
+                    int protocolIndex = protocolToIndexMap.get(protocolType);
 
-                objectMatrix[messageIndex][protocolIndex] =
-                    selection;
-                selectionMatrix[messageIndex][protocolIndex] =
-                    selection.isEnabled();
+                    objectMatrix[messageIndex][protocolIndex] =
+                        selection;
+                    selectionMatrix[messageIndex][protocolIndex] =
+                        selection.isEnabled();
+                }
             }
         }
 

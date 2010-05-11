@@ -19,20 +19,39 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications.googlevoice;
+package org.webcat.notifications.googlevoice;
 
-import java.io.IOException;
+import java.io.ByteArrayOutputStream;
+import java.io.UnsupportedEncodingException;
 import org.apache.http.HttpResponse;
 
 //-------------------------------------------------------------------------
 /**
- * A class that receives notifications during an asynchronous HTTP request.
+ * A basic implementation of the {@link URLConnectionDelegate} that collects
+ * data as it comes along the pipe and stores it in memory. Implementors need
+ * only override {@link URLConnectionDelegate#didFinishLoading()} and call the
+ * {@link SimpleURLConnectionDelegate#responseString()} method to retrieve the
+ * string response from the request, and the
+ * {@link SimpleURLConnectionDelegate#statusCode()} method to retrieve the
+ * response status code.
  *
  * @author  Tony Allevato
  * @version $Id$
  */
-public abstract class URLConnectionDelegate
+public abstract class SimpleURLConnectionDelegate extends URLConnectionDelegate
 {
+    //~ Constructors ..........................................................
+
+    // ----------------------------------------------------------
+    /**
+     * Initializes a new simple URL connection delegate.
+     */
+    public SimpleURLConnectionDelegate()
+    {
+        byteStream = new ByteArrayOutputStream();
+    }
+
+
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
@@ -43,7 +62,7 @@ public abstract class URLConnectionDelegate
      */
     public void didReceiveResponse(HttpResponse response)
     {
-        // Default implementation does nothing.
+        statusCode = response.getStatusLine().getStatusCode();
     }
 
 
@@ -56,28 +75,49 @@ public abstract class URLConnectionDelegate
      */
     public void didReceiveData(byte[] data, int length)
     {
-        // Default implementation does nothing.
+        byteStream.write(data, 0, length);
     }
 
 
     // ----------------------------------------------------------
     /**
-     * Called when the connection fails.
+     * Gets the response from this request as a string.
      *
-     * @param e an exception describing the failure
+     * @return the string content of the response
      */
-    public void didFailWithException(IOException e)
+    public String responseString()
     {
-        // Default implementation does nothing.
+        if (responseString == null)
+        {
+            try
+            {
+                responseString = byteStream.toString("UTF-8");
+            }
+            catch (UnsupportedEncodingException e)
+            {
+                // Do nothing.
+            }
+        }
+
+        return responseString;
     }
 
 
     // ----------------------------------------------------------
     /**
-     * Called when the response is finished loading.
+     * Gets the status code of the response.
+     *
+     * @return the status code
      */
-    public void didFinishLoading()
+    public int statusCode()
     {
-        // Default implementation does nothing.
+        return statusCode;
     }
+
+
+    //~ Static/instance variables .............................................
+
+    private int statusCode;
+    private ByteArrayOutputStream byteStream;
+    private String responseString;
 }

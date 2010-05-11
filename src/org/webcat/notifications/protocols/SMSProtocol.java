@@ -19,18 +19,18 @@
  |  along with Web-CAT; if not, see <http://www.gnu.org/licenses/>.
 \*==========================================================================*/
 
-package net.sf.webcat.notifications.protocols;
+package org.webcat.notifications.protocols;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import net.sf.webcat.core.User;
-import net.sf.webcat.core.messaging.IMessageSettings;
-import net.sf.webcat.notifications.ProtocolSettings;
-import net.sf.webcat.notifications.SendMessageJob;
-import net.sf.webcat.notifications.googlevoice.GoogleVoice;
-import net.sf.webcat.notifications.googlevoice.GoogleVoiceDelegate;
 import org.apache.log4j.Logger;
+import org.webcat.core.User;
+import org.webcat.core.messaging.IMessageSettings;
+import org.webcat.notifications.ProtocolSettings;
+import org.webcat.notifications.SendMessageJob;
+import org.webcat.notifications.googlevoice.GoogleVoice;
+import org.webcat.notifications.googlevoice.GoogleVoiceDelegate;
 
 //-------------------------------------------------------------------------
 /**
@@ -167,12 +167,12 @@ public class SMSProtocol extends Protocol
     //~ Static/instance variables .............................................
 
     private static final String ACCOUNT_EMAIL_SETTING =
-        "net.sf.webcat.notifications.protocols.SMSProtocol.accountEmail";
+        "org.webcat.notifications.protocols.SMSProtocol.accountEmail";
     private static final String PASSWORD_SETTING =
-        "net.sf.webcat.notifications.protocols.SMSProtocol.password";
+        "org.webcat.notifications.protocols.SMSProtocol.password";
 
     private static final String MOBILE_NUMBER_SETTING =
-        "net.sf.webcat.notifications.protocols.SMSProtocol.mobileNumber";
+        "org.webcat.notifications.protocols.SMSProtocol.mobileNumber";
 
     private CountDownLatch loginLatch;
     private boolean loginWasSuccessful;
