@@ -217,10 +217,6 @@ public class SendMessageWorkerThread extends WorkerThread<SendMessageJob>
 
         Set<Protocol> protocolsToSend = new HashSet<Protocol>();
 
-        NSArray<BroadcastMessageSubscription> subscriptions =
-            BroadcastMessageSubscription.enabledSubscriptionsForMessageType(
-                    localContext(), messageType);
-
         NSArray<Protocol> protocols =
             MessageDispatcher.sharedDispatcher().registeredProtocols(true);
 
@@ -231,6 +227,10 @@ public class SendMessageWorkerThread extends WorkerThread<SendMessageJob>
                 protocolsToSend.add(protocol);
             }
         }
+
+        NSArray<BroadcastMessageSubscription> subscriptions =
+            BroadcastMessageSubscription.subscriptionsForMessageType(
+                    localContext(), messageType);
 
         for (BroadcastMessageSubscription subscription : subscriptions)
         {
@@ -280,10 +280,6 @@ public class SendMessageWorkerThread extends WorkerThread<SendMessageJob>
 
         Set<Protocol> protocolsToSend = new HashSet<Protocol>();
 
-        NSArray<UserMessageSubscription> subscriptions =
-            UserMessageSubscription.enabledSubscriptionsForMessageTypeAndUser(
-                    ec, messageType, user);
-
         NSArray<Protocol> protocols =
             MessageDispatcher.sharedDispatcher().registeredProtocols(false);
 
@@ -294,6 +290,10 @@ public class SendMessageWorkerThread extends WorkerThread<SendMessageJob>
                 protocolsToSend.add(protocol);
             }
         }
+
+        NSArray<UserMessageSubscription> subscriptions =
+            UserMessageSubscription.subscriptionsForMessageTypeAndUser(
+                    ec, messageType, user);
 
         for (UserMessageSubscription subscription : subscriptions)
         {
