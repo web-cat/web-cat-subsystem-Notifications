@@ -30,8 +30,8 @@ import com.webobjects.eocontrol.EOEditingContext;
 /**
  * TODO: place a real description here.
  *
- * @author
- * @author  latest changes by: $Author$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
  * @version $Revision$, $Date$
  */
 public class ProtocolSettings
@@ -76,25 +76,26 @@ public class ProtocolSettings
      * object yet exists for this user, an empty one is created as associated
      * with them.
      *
-     * @param user the user
+     * @param theUser the user
      * @return the protocol settings for the user
      */
     public static ProtocolSettings protocolSettingsForUser(
-            User user)
+            User theUser)
     {
-        ProtocolSettings settings =
+        ProtocolSettings userSettings =
             ProtocolSettings.uniqueObjectMatchingQualifier(
-                user.editingContext(),
-                ProtocolSettings.user.is(user));
+                theUser.editingContext(),
+                ProtocolSettings.user.is(theUser));
 
-        if (settings == null)
+        if (userSettings == null)
         {
-            settings = ProtocolSettings.create(user.editingContext(), false);
-            settings.setUserRelationship(user);
-            user.editingContext().saveChanges();
+            userSettings = ProtocolSettings.create(
+                theUser.editingContext(), false);
+            userSettings.setUserRelationship(theUser);
+            theUser.editingContext().saveChanges();
         }
 
-        return settings;
+        return userSettings;
     }
 
 

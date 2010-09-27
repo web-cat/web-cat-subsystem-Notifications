@@ -25,8 +25,8 @@ package org.webcat.notifications;
 /**
  * TODO: place a real description here.
  *
- * @author
- * @author  latest changes by: $Author$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
  * @version $Revision$, $Date$
  */
 public class UserMessageSubscription
@@ -42,8 +42,4 @@ public class UserMessageSubscription
     {
         super();
     }
-
-
-    //~ Methods ...............................................................
-
 }

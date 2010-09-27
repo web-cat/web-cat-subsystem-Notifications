@@ -25,14 +25,14 @@ package org.webcat.notifications;
 /**
  * TODO: place a real description here.
  *
- * @author
- * @author  latest changes by: $Author$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
  * @version $Revision$, $Date$
  */
 public class BroadcastMessageSubscription
     extends _BroadcastMessageSubscription
 {
-    //~ Constructors ..........................................................
+    //~ Constructor ...........................................................
 
     // ----------------------------------------------------------
     /**
@@ -42,8 +42,4 @@ public class BroadcastMessageSubscription
     {
         super();
     }
-
-
-    //~ Methods ...............................................................
-
 }

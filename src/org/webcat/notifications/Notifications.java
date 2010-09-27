@@ -33,10 +33,12 @@ import com.webobjects.eocontrol.EOKeyGlobalID;
 /**
  * The primary class of the Notifications subsystem.
  *
- * @author Tony Allevato
- * @version $Id$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
+ * @version $Revision$, $Date$
  */
-public class Notifications extends Subsystem
+public class Notifications
+    extends Subsystem
 {
     //~ Constructor ...........................................................
 

@@ -24,7 +24,6 @@ package org.webcat.notifications;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;
 import org.webcat.dbupdate.UpdateSet;
-import org.webcat.jobqueue.JobQueueDatabaseUpdates;
 
 //-------------------------------------------------------------------------
 /**
@@ -32,8 +31,9 @@ import org.webcat.jobqueue.JobQueueDatabaseUpdates;
  * underlying the Notifications subsystem and the Notifications.eomodeld.
  * Logging output for this class uses its parent class' logger.
  *
- * @author Tony Allevato
- * @version $Id$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
+ * @version $Revision$, $Date$
  */
 public class NotificationsDatabaseUpdates
     extends UpdateSet

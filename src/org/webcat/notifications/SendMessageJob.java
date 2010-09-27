@@ -28,8 +28,8 @@ import com.webobjects.foundation.NSTimestamp;
 /**
  * TODO: place a real description here.
  *
- * @author
- * @author  latest changes by: $Author$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
  * @version $Revision$, $Date$
  */
 public class SendMessageJob
@@ -50,7 +50,10 @@ public class SendMessageJob
     //~ Methods ...............................................................
 
     // ----------------------------------------------------------
-    public static SendMessageJob create(EOEditingContext ec, boolean isSevere)
+    public static SendMessageJob create(
+        EOEditingContext ec,
+        @SuppressWarnings("hiding") boolean isSevere
+    )
     {
         return create(ec, new NSTimestamp(), false, false, isSevere, false);
     }

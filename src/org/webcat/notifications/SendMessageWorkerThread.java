@@ -42,7 +42,7 @@ import com.webobjects.foundation.NSDictionary;
  * TODO: place a real description here.
  *
  * @author  Tony Allevato
- * @author  latest changes by: $Author$
+ * @author  Latest changes by: $Author$
  * @version $Revision$, $Date$
  */
 public class SendMessageWorkerThread extends WorkerThread<SendMessageJob>
@@ -181,6 +181,7 @@ public class SendMessageWorkerThread extends WorkerThread<SendMessageJob>
         body.append(job.fullBody());
         body.append("\n\n");
 
+        @SuppressWarnings("unchecked")
         NSDictionary<String, String> links = job.links();
         if (links != null && links.count() > 0)
         {

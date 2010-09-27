@@ -21,28 +21,22 @@
 
 package org.webcat.notifications;
 
-import java.util.HashMap;
 import org.webcat.core.MutableDictionary;
 import org.webcat.core.WCComponent;
-import org.webcat.core.messaging.Message;
-import org.webcat.core.messaging.MessageDescriptor;
 import org.webcat.notifications.protocols.Protocol;
 import com.webobjects.appserver.WOActionResults;
-import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOContext;
 import com.webobjects.appserver.WOResponse;
-import com.webobjects.eocontrol.EOCustomObject;
 import com.webobjects.foundation.NSArray;
 import com.webobjects.foundation.NSDictionary;
-import er.extensions.eof.ERXS;
-import er.extensions.eof.ERXSortOrdering.ERXSortOrderings;
 
 //-------------------------------------------------------------------------
 /**
  * TODO real description
  *
- * @author Tony Allevato
- * @version $Id$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
+ * @version $Revision$, $Date$
  */
 public class SystemMessagingConfigPage extends WCComponent
 {

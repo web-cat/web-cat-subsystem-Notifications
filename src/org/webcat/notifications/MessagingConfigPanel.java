@@ -28,9 +28,7 @@ import org.webcat.core.WCComponent;
 import org.webcat.core.messaging.Message;
 import org.webcat.core.messaging.MessageDescriptor;
 import org.webcat.notifications.protocols.Protocol;
-import org.webcat.ui.generators.JavascriptGenerator;
 import com.webobjects.appserver.WOActionResults;
-import com.webobjects.appserver.WOComponent;
 import com.webobjects.appserver.WOContext;
 import com.webobjects.appserver.WOResponse;
 import com.webobjects.eocontrol.EOCustomObject;
@@ -44,8 +42,9 @@ import er.extensions.eof.ERXSortOrdering.ERXSortOrderings;
  * This component encapsulates the message subscription matrix for either a
  * user or for the system broadcast messages.
  *
- * @author Tony Allevato
- * @version $Id$
+ * @author  Tony Allevato
+ * @author  Latest changes by: $Author$
+ * @version $Revision$, $Date$
  */
 public class MessagingConfigPanel extends WCComponent
 {
