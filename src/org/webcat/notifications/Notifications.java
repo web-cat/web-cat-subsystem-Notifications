@@ -99,9 +99,8 @@ public class Notifications
         // Register the message dispatcher with the application, overriding
         // the built-in fallback dispatcher.
 
-        Application application = (Application) Application.application();
-        application.setMessageDispatcher(
-                MessageDispatcher.sharedDispatcher());
+        Application.wcApplication().setMessageDispatcher(
+            MessageDispatcher.sharedDispatcher());
 
         log.info("Starting SendMessageJob worker thread");
 
