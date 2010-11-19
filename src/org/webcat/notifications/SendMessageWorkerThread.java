@@ -198,7 +198,8 @@ public class SendMessageWorkerThread extends WorkerThread<SendMessageJob>
             }
         }
 
-        Application.sendAdminEmail(job.title(), body.toString());
+        Application.sendAdminEmail(
+            job.title(), body.toString(), job.attachments());
     }
 
 
