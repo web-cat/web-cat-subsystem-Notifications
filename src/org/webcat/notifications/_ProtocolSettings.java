@@ -161,7 +161,8 @@ public abstract class _ProtocolSettings
     // Fetch specifications ---
     public static final String ENTITY_NAME = "ProtocolSettings";
 
-    public final EOBasedKeyGenerator generateKey = new EOBasedKeyGenerator(this);
+    public transient final EOBasedKeyGenerator generateKey =
+        new EOBasedKeyGenerator(this);
 
 
     //~ Methods ...............................................................

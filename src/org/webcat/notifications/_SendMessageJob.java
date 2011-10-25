@@ -194,7 +194,8 @@ public abstract class _SendMessageJob
     // Fetch specifications ---
     public static final String ENTITY_NAME = "SendMessageJob";
 
-    public final EOBasedKeyGenerator generateKey = new EOBasedKeyGenerator(this);
+    public transient final EOBasedKeyGenerator generateKey =
+        new EOBasedKeyGenerator(this);
 
 
     //~ Methods ...............................................................

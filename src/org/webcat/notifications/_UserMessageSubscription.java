@@ -159,7 +159,8 @@ public abstract class _UserMessageSubscription
     public static final String SUBSCRIPTIONS_FOR_USER_FSPEC = "subscriptionsForUser";
     public static final String ENTITY_NAME = "UserMessageSubscription";
 
-    public final EOBasedKeyGenerator generateKey = new EOBasedKeyGenerator(this);
+    public transient final EOBasedKeyGenerator generateKey =
+        new EOBasedKeyGenerator(this);
 
 
     //~ Methods ...............................................................
