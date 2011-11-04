@@ -82,48 +82,58 @@ public class MessageDispatcher
     {
         EOEditingContext ec = message.editingContext();
 
-        SendMessageJob job = SendMessageJob.create(ec, message.isSevere());
-
-        IMessageSettings settings = message.broadcastSettings();
-        if (settings instanceof ProtocolSettings)
+        try
         {
-            job.setBroadcastProtocolSettingsRelationship(
-                    ProtocolSettings.localInstance(ec,
-                            (ProtocolSettings) settings));
-        }
-        else if (settings != null)
-        {
-            job.setBroadcastProtocolSettingsSnapshot(
-                    settings.settingsSnapshot());
-        }
-        else
-        {
-            job.setBroadcastProtocolSettingsRelationship(
-                    ProtocolSettings.systemSettings(ec));
-        }
+            ec.lock();
 
-        job.setMessageType(message.messageType());
-        job.setTitle(message.title());
-        job.setShortBody(message.shortBody());
-        job.setFullBody(message.fullBody());
+            SendMessageJob job = SendMessageJob.create(ec, message.isSevere());
 
-        if (message.links() != null)
-        {
-            job.setLinks(new MutableDictionary(message.links()));
+            IMessageSettings settings = message.broadcastSettings();
+            if (settings instanceof ProtocolSettings)
+            {
+                job.setBroadcastProtocolSettingsRelationship(
+                        ProtocolSettings.localInstance(ec,
+                                (ProtocolSettings) settings));
+            }
+            else if (settings != null)
+            {
+                job.setBroadcastProtocolSettingsSnapshot(
+                        settings.settingsSnapshot());
+            }
+            else
+            {
+                job.setBroadcastProtocolSettingsRelationship(
+                        ProtocolSettings.systemSettings(ec));
+            }
+
+            job.setMessageType(message.messageType());
+            job.setTitle(message.title());
+            job.setShortBody(message.shortBody());
+            job.setFullBody(message.fullBody());
+
+            if (message.links() != null)
+            {
+                job.setLinks(new MutableDictionary(message.links()));
+            }
+
+            if (message.attachments() != null)
+            {
+                job.setAttachments(new MutableDictionary(
+                        message.attachments()));
+            }
+
+            for (User user : message.users())
+            {
+                job.addToDestinationUsers(User.localInstance(ec, user));
+            }
+
+            job.setIsReady(true);
+            ec.saveChanges();
         }
-
-        if (message.attachments() != null)
+        finally
         {
-            job.setAttachments(new MutableDictionary(message.attachments()));
+            ec.unlock();
         }
-
-        for (User user : message.users())
-        {
-            job.addToDestinationUsers(User.localInstance(ec, user));
-        }
-
-        job.setIsReady(true);
-        ec.saveChanges();
     }
 
 
