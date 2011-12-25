@@ -1,7 +1,7 @@
 /*==========================================================================*\
  |  $Id$
  |*-------------------------------------------------------------------------*|
- |  Copyright (C) 2006-2009 Virginia Tech
+ |  Copyright (C) 2010-2011 Virginia Tech
  |
  |  This file is part of Web-CAT.
  |
@@ -21,6 +21,10 @@
 
 package org.webcat.notifications;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.webcat.core.MutableDictionary;
 import com.webobjects.eocontrol.EOEditingContext;
 import com.webobjects.foundation.NSTimestamp;
 
@@ -29,7 +33,7 @@ import com.webobjects.foundation.NSTimestamp;
  * TODO: place a real description here.
  *
  * @author  Tony Allevato
- * @author  Latest changes by: $Author$
+ * @author  Last changed by: $Author$
  * @version $Revision$, $Date$
  */
 public class SendMessageJob
@@ -56,5 +60,38 @@ public class SendMessageJob
     )
     {
         return create(ec, new NSTimestamp(), false, false, isSevere, false);
+    }
+
+
+    // ----------------------------------------------------------
+    public void setAttachments(List<File> attachments)
+    {
+        MutableDictionary realAttachments = attachments();
+        realAttachments.clear();
+        if (attachments != null)
+        {
+            for (File file : attachments)
+            {
+                realAttachments.takeValueForKey(
+                    file.getPath(), file.getName());
+            }
+        }
+    }
+
+
+    // ----------------------------------------------------------
+    public List<File> attachmentsAsList()
+    {
+        List<File> result = null;
+        MutableDictionary realAttachments = attachments();
+        if (realAttachments.size() > 0)
+        {
+            result = new ArrayList<File>(realAttachments.size());
+            for (Object path : realAttachments.allValues())
+            {
+                result.add(new File(path.toString()));
+            }
+        }
+        return result;
     }
 }
